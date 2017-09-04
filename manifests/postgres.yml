@@ -29,7 +29,7 @@ instance_groups:
               extensions:
               - citext
               - pgcypto
-          users:
+          users: &pgpool_users
             - username: admin
               password: ((db-admin-password))
               admin:    true
@@ -45,6 +45,7 @@ instance_groups:
           config:
             port: 5432
             enable_pool_hba: off
+          users: *pgpool_users
         pcp:
           system_password: secret
 
